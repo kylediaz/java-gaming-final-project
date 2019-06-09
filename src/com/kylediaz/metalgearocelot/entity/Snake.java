@@ -1,8 +1,10 @@
 package com.kylediaz.metalgearocelot.entity;
 
 import com.kylediaz.metalgearocelot.entity.animation.AnimationCycle;
+import com.kylediaz.metalgearocelot.entity.animation.DirectionalAnimation;
 import com.kylediaz.metalgearocelot.entity.animation.MovementAnimation;
 import com.kylediaz.metalgearocelot.entity.animation.SingleFrameAnimationCycle;
+import com.kylediaz.metalgearocelot.util.Direction;
 import com.kylediaz.metalgearocelot.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -26,10 +28,7 @@ public class Snake extends PhysicalEntity {
     @Override
     public void draw(Graphics2D g2d) {
         try {
-            // 0 degrees and not moving appear to be the same thing, so I have to make sure it is moving
-            if (getVelocity() != Vector.ZERO)
-                movementAnimation.setCurrentDirection(getVelocity().getDirection());
-            movementAnimation.setMoving(getVelocity() != Vector.ZERO);
+            movementAnimation.setVelocity(getVelocity());
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -67,7 +66,7 @@ public class Snake extends PhysicalEntity {
                     ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\move\\right\\6.png")),
                     ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\move\\right\\7.png")),
                     ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\move\\right\\8.png")));
-            moveLeft = new AnimationCycle(moveRight.getCyclesPerFrame(), moveRight.flipVertically());
+            moveLeft = new AnimationCycle(moveRight.getCyclesPerFrame(), moveRight.flipHorizontally());
 
             AnimationCycle upIdle = new SingleFrameAnimationCycle(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\idle\\up\\1.png")));
             AnimationCycle downIdle = new SingleFrameAnimationCycle(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\idle\\down\\1.png")));
@@ -79,8 +78,19 @@ public class Snake extends PhysicalEntity {
             AnimationCycle downLeftIdle = new SingleFrameAnimationCycle(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\idle\\down left\\1.png")));
             AnimationCycle downRightIdle = new SingleFrameAnimationCycle(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\idle\\down right\\1.png")));
 
-            movementAnimation = new MovementAnimation.Builder().cardinal(moveRight,moveDown,moveLeft,moveUp, rightIdle, downIdle, leftIdle, upIdle)
-                    .diagonal(moveDown, moveDown, moveUp, moveUp, downRightIdle, downLeftIdle, upLeftIdle, upRightIdle).build();
+            DirectionalAnimation moving = new DirectionalAnimation.Builder().add(Direction.UP, moveUp).add(Direction.DOWN, moveDown)
+                    .add(Direction.LEFT, moveLeft).add(Direction.RIGHT, moveRight)
+                    .add(Direction.DOWNRIGHT, moveDown).add(Direction.DOWNLEFT, moveDown)
+                    .add(Direction.UPRIGHT, moveUp).add(Direction.UPLEFT, moveUp)
+                    .build();
+
+            DirectionalAnimation idle = new DirectionalAnimation.Builder().add(Direction.UP, upIdle).add(Direction.DOWN, downIdle)
+                    .add(Direction.LEFT, leftIdle).add(Direction.RIGHT, rightIdle)
+                    .add(Direction.DOWNRIGHT, downRightIdle).add(Direction.DOWNLEFT, downLeftIdle)
+                    .add(Direction.UPRIGHT, upRightIdle).add(Direction.UPLEFT, upLeftIdle)
+                    .build();
+
+            movementAnimation = new MovementAnimation.Builder().add(0, idle).add(25, moving).build();
         } catch (IOException e) {
             System.err.println(e);
             System.exit(1);

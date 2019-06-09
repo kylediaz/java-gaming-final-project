@@ -3,6 +3,9 @@ package com.kylediaz.metalgearocelot.entity.animation;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * An ImageAnimation, but when it reaches the end of the animation, it loops back to the beginning
+ */
 public class AnimationCycle extends ImageAnimation {
 
     /**

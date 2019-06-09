@@ -4,11 +4,6 @@ public class Vector {
 
     private final double xComponent, yComponent;
 
-    public Vector() {
-        xComponent = 0;
-        yComponent = 0;
-    }
-
     public static final Vector ZERO = new Vector(0, 0);
     /*
      * constructor is made private to force client to specify what kind of coordinate system they are using
@@ -54,6 +49,10 @@ public class Vector {
         double angle = Math.toDegrees(Math.atan2(yComponent, xComponent));
         if (angle < 0) angle += 360;
         return angle;
+    }
+    public double magnitude() {
+        // distance formula/c is the magnitude of the vector
+        return Math.sqrt(xComponent * xComponent + yComponent * yComponent);
     }
 
     @Override

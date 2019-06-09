@@ -1,45 +1,36 @@
 package com.kylediaz.metalgearocelot.entity.animation;
 
 import com.kylediaz.metalgearocelot.util.Direction;
+import com.kylediaz.metalgearocelot.util.Vector;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class MovementAnimation extends Animation {
 
-    // Array indices
-    private static final int RIGHT = 0, DOWN = 1, LEFT = 2, UP = 3;
-    private static final int DOWNRIGHT = 0, DOWNLEFT = 1, UPLEFT = 2, UPRIGHT = 3;
-    
-    private AnimationCycle[] crossMoving, crossIdle, diagonalMoving, diagonalIdle;
-    private Direction currentDirection = Direction.RIGHT;
-    private boolean isMoving = false;
+    private SortedMap<Double, DirectionalAnimation> animations;
+
+    private double currentSpeed;
+    private Direction currentDirection;
 
     // Prevents outside instantiation
-    private MovementAnimation(AnimationCycle[] crossMoving, AnimationCycle[] crossIdle, AnimationCycle[] diagonalMoving, AnimationCycle[] diagonalIdle) {
-        this.crossMoving = crossMoving;
-        this.crossIdle = crossIdle;
-        this.diagonalMoving = diagonalMoving;
-        this.diagonalIdle = diagonalIdle;
+    private MovementAnimation(SortedMap<Double, DirectionalAnimation> animations) {
+        this.animations = animations;
     }
 
     public static class Builder {
-        private AnimationCycle[] crossMoving, crossIdle, diagonalMoving, diagonalIdle;
-        public Builder cardinal(AnimationCycle rightMoving, AnimationCycle downMoving, AnimationCycle leftMoving, AnimationCycle upMoving,
-                                AnimationCycle rightIdle, AnimationCycle downIdle, AnimationCycle leftIdle, AnimationCycle upIdle) {
-            crossMoving = new AnimationCycle[] {rightMoving, downMoving, leftMoving, upMoving};
-            crossIdle = new AnimationCycle[] {rightIdle,downIdle,leftIdle,upIdle};
-            return this;
-        }
-        public Builder diagonal(AnimationCycle downRightMoving, AnimationCycle downLeftMoving, AnimationCycle upLeftMoving, AnimationCycle upRightMoving,
-                                AnimationCycle downRightIdle, AnimationCycle downLeftIdle, AnimationCycle upLeftIdle, AnimationCycle upRightIdle) {
-            diagonalMoving = new AnimationCycle[] {downRightMoving, downLeftMoving, upLeftMoving, upRightMoving};
-            diagonalIdle = new AnimationCycle[] {downRightIdle,downLeftIdle, upLeftIdle,upRightIdle};
+        private SortedMap<Double, DirectionalAnimation> animations = new TreeMap<>();
+        public Builder add(double speed, DirectionalAnimation animation) {
+            animations.put(speed, animation);
             return this;
         }
         public MovementAnimation build() {
-            return new MovementAnimation(crossMoving, crossIdle, diagonalMoving, diagonalIdle);
+            if (animations.size() == 0) {
+                throw new RuntimeException("Movement Animation with no animations");
+            }
+            return new MovementAnimation(animations);
         }
     }
 
@@ -48,62 +39,38 @@ public class MovementAnimation extends Animation {
         return currentAnimationCycle().currentFrame();
     }
     public AnimationCycle currentAnimationCycle() {
-        AnimationCycle[] crossArr, diagonalArr;
-        if (isMoving) {
-            crossArr = crossMoving;
-            diagonalArr = diagonalMoving;
-        } else {
-            crossArr = crossIdle;
-            diagonalArr = diagonalIdle;
-        }
-        AnimationCycle output;
-        System.out.println(currentDirection);
-        switch (currentDirection) {
-            case RIGHT:
-                output = crossArr[RIGHT];
-                break;
-            case DOWN:
-                output = crossArr[DOWN];
-                break;
-            case LEFT:
-                output = crossArr[LEFT];
-                break;
-            case UP:
-                output = crossArr[UP];
-                break;
-            case DOWNRIGHT:
-                output = diagonalArr[DOWNRIGHT];
-                break;
-            case DOWNLEFT:
-                output = diagonalArr[DOWNLEFT];
-                break;
-            case UPLEFT:
-                output = diagonalArr[UPLEFT];
-                break;
-            default: //case UPRIGHT:
-                output = diagonalArr[UPRIGHT];
-        }
-        return output;
+        DirectionalAnimation animation = getDirectionalAnimation();
+        animation.setCurrentDirection(currentDirection);
+        return animation.getCurrentAnimation();
     }
 
-    public boolean isMoving() {
-        return isMoving;
-    }
-    public void setMoving(boolean isMoving) {
-        this.isMoving = isMoving;
-    }
     public Direction getCurrentDirection() {
         return currentDirection;
     }
-    public void setCurrentDirection(Direction direction) {
-        if (!isValidDirection(direction))
-            throw new RuntimeException("Illegal direction");
-        else
-            this.currentDirection = direction;
+    public double getCurrentSpeed() {
+        return currentSpeed;
     }
-    public boolean isValidDirection(Direction direction) {
-        return (direction.isCardinal() && crossMoving instanceof AnimationCycle[] && crossIdle instanceof AnimationCycle[])
-                || (direction.isDiagonal() && diagonalMoving instanceof  AnimationCycle[] && diagonalIdle instanceof AnimationCycle[]);
+    public void setVelocity(Vector v) {
+        currentSpeed = v.magnitude();
+        try {
+            // 0 degrees and not moving appear to be the same thing, so I have to make sure it is moving
+            if (v != Vector.ZERO) {
+                Direction direction = v.getDirection();
+                if (direction == currentDirection || getDirectionalAnimation().isValidDirection(direction))
+                    currentDirection = direction;
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+    private DirectionalAnimation getDirectionalAnimation() {
+        DirectionalAnimation output = null;
+        for (Map.Entry<Double, DirectionalAnimation> entry : animations.entrySet()) {
+            if (currentSpeed <= entry.getKey())
+                return entry.getValue();
+            output = entry.getValue();
+        }
+        return output;
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.awt.geom.Rectangle2D;
 public class PhysicalEntity extends Entity implements Focusable {
 
     private Rectangle.Double bounds;
-    private Vector velocity = new Vector();
+    private Vector velocity = Vector.ZERO;
 
     /**
      * A constructor so the client doesn't have to create a <code>Rectangle</code> themself

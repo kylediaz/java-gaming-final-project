@@ -11,7 +11,7 @@ public abstract class Animation {
     @Override
     public String toString() {
         return currentFrame() != null ? String.format("%s on frame %s", super.toString(), currentFrame().toString())
-                : super.toString() + "Animation done";
+                : super.toString() + " Animation done";
     }
 
 }

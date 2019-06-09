@@ -1,8 +1,6 @@
 package com.kylediaz.metalgearocelot.entity.animation;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
 
 public class ImageAnimation extends Animation {
 
@@ -47,14 +45,14 @@ public class ImageAnimation extends Animation {
         this.cyclesPerFrame = cyclesPerFrame;
     }
 
-    public BufferedImage[] flipVertically() {
+    public BufferedImage[] flipHorizontally() {
         BufferedImage[] outputFrames = new BufferedImage[frames.length];
         for (int i = 0; i < frames.length; i++) {
-            outputFrames[i] = flipVertically(frames[i]);
+            outputFrames[i] = flipHorizontally(frames[i]);
         }
         return outputFrames;
     }
-    private BufferedImage flipVertically(BufferedImage sprite){
+    private BufferedImage flipHorizontally(BufferedImage sprite){
         BufferedImage img = new BufferedImage(sprite.getWidth(),sprite.getHeight(),BufferedImage.TYPE_INT_ARGB);
         for(int xx = sprite.getWidth()-1;xx>0;xx--){
             for(int yy = 0;yy < sprite.getHeight();yy++){
