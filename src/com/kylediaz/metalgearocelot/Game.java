@@ -4,13 +4,18 @@ import com.kylediaz.metalgearocelot.camera.Camera;
 import com.kylediaz.metalgearocelot.entity.EntityManager;
 import com.kylediaz.metalgearocelot.entity.Snake;
 import com.kylediaz.metalgearocelot.input.Keyboard;
+import com.kylediaz.metalgearocelot.map.Map;
 import com.kylediaz.metalgearocelot.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyEvent;
+import java.awt.geom.AffineTransform;
+import java.io.File;
+import java.io.IOException;
 
 public class Game extends JPanel {
 
@@ -19,7 +24,20 @@ public class Game extends JPanel {
     private EntityManager entityManager = new EntityManager();
     private Camera camera;
 
-    WindowScaler windowScaler = new WindowScaler();
+    private Map map;
+
+    {
+        try {
+            map = new Map.Builder()
+                    .background(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\maps\\arena\\background.png")))
+                    .build();
+        } catch (IOException e) {
+            System.err.println(e);
+            System.exit(1);
+        }
+    }
+
+    private WindowScaler windowScaler = new WindowScaler();
 
     private JFrame parent;
 
@@ -29,11 +47,14 @@ public class Game extends JPanel {
 
         initEntities();
 
-        // this listens for the window resizing - and when it does it changes the scale of the game to match the new size
+        // listen for window resizing
         parent.addComponentListener(windowScaler);
     }
+
+    Snake snake;
+
     private void initEntities() {
-        Snake snake = new Snake(0, 0) {
+        snake = new Snake(0, 0) {
             @Override
             public void tick(double deltaTime) {
                 super.tick(deltaTime);
@@ -60,11 +81,14 @@ public class Game extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        windowScaler.scaleToFitWindow(g2d);
+        g2d.transform(windowScaler.getTransformation());
 
-        g2d.setColor(Color.WHITE);
-        g2d.setColor(Color.RED);
+        g2d.transform(camera.transformToFocus());
+
+        map.drawBackground(g2d);
         entityManager.forEach(e -> e.draw(g2d));
+        map.drawForeground(g2d);
+
         repaint();
     }
 
@@ -78,9 +102,12 @@ public class Game extends JPanel {
             paddingLeft = (parent.getWidth() - camera.getDimension().width * scale) / 2 / scale;
             paddingTop = (parent.getHeight() - camera.getDimension().height * scale) / 2 / scale;
         }
-        private void scaleToFitWindow(Graphics2D g2d) {
-            g2d.scale(scale, scale);
-            g2d.translate(paddingLeft, paddingTop);
+
+        private AffineTransform getTransformation() {
+            AffineTransform output = new AffineTransform();
+            output.scale(scale, scale);
+            output.translate(paddingLeft, paddingTop);
+            return output;
         }
     }
 

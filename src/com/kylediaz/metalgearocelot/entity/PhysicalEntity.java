@@ -4,6 +4,7 @@ import com.kylediaz.metalgearocelot.camera.Focusable;
 import com.kylediaz.metalgearocelot.util.Vector;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 public class PhysicalEntity extends Entity implements Focusable {
@@ -71,4 +72,8 @@ public class PhysicalEntity extends Entity implements Focusable {
         this.velocity = velocity;
     }
 
+    @Override
+    public Point2D.Double getFocusPoint() {
+        return new Point2D.Double(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
+    }
 }

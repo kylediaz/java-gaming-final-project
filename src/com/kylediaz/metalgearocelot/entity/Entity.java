@@ -11,7 +11,10 @@ public abstract class Entity {
 
     private Set<Animation> animations = new HashSet<>();
 
-    public void draw(Graphics2D g) {
+    /**
+     * @param g Graphics2D var of the game it is in
+     */
+    public void draw(Graphics2D g2d) {
 
     }
 
