@@ -1,17 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8954142-3319-4814-be36-74564697b40e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="b8954142-3319-4814-be36-74564697b40e" name="Default Changelist" comment="Implemented Events and Effects to better define the behavior of Entities">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/QuickDirectionalAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game$WindowScaler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game$WindowScaler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDownLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDownRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUpLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUpRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/assets/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/PhysicalEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/PhysicalEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/Snake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/Animation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/map/Map$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/map/Map$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/map/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/map/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/util/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final Project/com/kylediaz/metalgearocelot/util/Vector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Focusable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Focusable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDownLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootDownRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUpLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/characters/snake/shoot/shootUpRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/assets/images/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/DirectionalAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,12 +67,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342">
-              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="-223">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="class#WindowScaler#0;class#Game#0" />
               </folding>
             </state>
@@ -38,37 +81,89 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java">
+        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="76" column="93" selection-start-line="76" selection-start-column="93" selection-end-line="76" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-104">
-              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            <state relative-caret-position="357">
+              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#327#328#0" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java">
+        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-325">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="323">
+              <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+              <folding>
+                <element signature="method#createMovementAnimations#0;class#Snake#0" />
+                <element signature="method#createAttackAnimations#0;class#Snake#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
+              <folding>
+                <element signature="class#Builder#0;class#MovementAnimation#0" />
+                <element signature="method#setVelocity#0;class#MovementAnimation#0" />
+                <element signature="method#getDirectionalAnimation#0;class#MovementAnimation#0" />
+                <element signature="e#2858#2859#0" expanded="true" />
+                <element signature="e#2917#2918#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/DirectionalAnimation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="79" column="41" lean-forward="true" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+              <folding>
+                <element signature="e#2471#2472#0" expanded="true" />
+                <element signature="e#2535#2536#0" expanded="true" />
+                <element signature="e#2576#2577#0" expanded="true" />
+                <element signature="e#2640#2641#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+              <folding>
+                <element signature="e#1053#1054#0" expanded="true" />
+                <element signature="e#1089#1090#0" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
+                <element signature="e#1740#1741#0" expanded="true" />
+                <element signature="e#1772#1773#0" expanded="true" />
+                <element signature="e#1812#1813#0" expanded="true" />
+                <element signature="e#1844#1845#0" expanded="true" />
+                <element signature="e#2161#2162#0" expanded="true" />
+                <element signature="e#2192#2193#0" expanded="true" />
+                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="e#2279#2280#0" expanded="true" />
+                <element signature="e#3111#3112#0" expanded="true" />
+                <element signature="e#3153#3154#0" expanded="true" />
+                <element signature="e#3194#3195#0" expanded="true" />
+                <element signature="e#3236#3237#0" expanded="true" />
+                <element signature="method#isFinished#0;class#Event#0;class#PhysicalEntity#0" />
+                <element signature="e#3707#3708#0" expanded="true" />
+                <element signature="e#3736#3737#0" expanded="true" />
+                <element signature="e#3781#3782#0" expanded="true" />
+                <element signature="e#3813#3814#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,19 +236,31 @@
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Direction.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/SingleFrameAnimation.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/SingleFrameAnimationCycle.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Focusable.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation_Class.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Main.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/ParallelDirectionalAnimation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/QuickDirectionalAnimation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Point.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/RunEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Move.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Shoot.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Event.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Character.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/DirectionalAnimation.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java" />
         <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Focusable.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java" />
-        <option value="$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java" />
       </list>
     </option>
   </component>
@@ -161,11 +268,16 @@
     <option name="width" value="820" />
     <option name="height" value="576" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,35 +301,7 @@
               <item name="java-gaming-final-project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="metalgearocelot" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-gaming-final-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-gaming-final-project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="metalgearocelot" type="462c0819:PsiDirectoryNode" />
-              <item name="camera" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-gaming-final-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-gaming-final-project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="metalgearocelot" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-gaming-final-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-gaming-final-project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="metalgearocelot" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java-gaming-final-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java-gaming-final-project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="metalgearocelot" type="462c0819:PsiDirectoryNode" />
-              <item name="map" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java-gaming-final-project" type="b2602c69:ProjectViewProjectNode" />
@@ -230,8 +314,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,35 +394,35 @@
       <workItem from="1559071046878" duration="1146000" />
       <workItem from="1559140492951" duration="3411000" />
       <workItem from="1560020516247" duration="29068000" />
-      <workItem from="1560107539360" duration="12221000" />
+      <workItem from="1560107539360" duration="29107000" />
+      <workItem from="1560364215052" duration="9191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96259000" />
+    <option name="totallyTimeSpent" value="122336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20788912" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.21002132" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="5" visible="true" weight="0.23185265" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.23185265" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.18418202" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.20476706" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.20476706" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Theme Preview" order="0" />
@@ -387,6 +469,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented Events and Effects to better define the behavior of Entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Events and Effects to better define the behavior of Entities" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
@@ -505,19 +591,61 @@
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/gargame/util/Time.java" />
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/input/Keyboard.java" />
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Oddie.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/EntityManager.java" />
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/input/Mouse.java" />
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Direction.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/SingleFrameAnimationCycle.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/DirectionalAnimation.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Main.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="374">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/QuickDirectionalAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+          <folding>
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/ImageAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          <folding>
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1457#1458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/SingleFrameAnimationCycle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -528,76 +656,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/camera/Focusable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="76" column="93" selection-start-line="76" selection-start-column="93" selection-end-line="76" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding>
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/map/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        <state relative-caret-position="799">
+          <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#708#709#0" expanded="true" />
             <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Vector.java">
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-325">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dylan.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Shoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/event/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="22" />
+          <folding>
+            <element signature="method#end#0;class#Move#0" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/AnimationCycle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        <state relative-caret-position="-223">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="class#WindowScaler#0;class#Game#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/util/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#end#0;class#Move#0;class#Character#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/directional/DirectionalAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="79" column="41" lean-forward="true" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+          <folding>
+            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+            <element signature="e#2576#2577#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="method#createMovementAnimations#0;class#Snake#0" />
+            <element signature="method#createAttackAnimations#0;class#Snake#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/animation/MovementAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
+          <folding>
+            <element signature="class#Builder#0;class#MovementAnimation#0" />
+            <element signature="method#setVelocity#0;class#MovementAnimation#0" />
+            <element signature="method#getDirectionalAnimation#0;class#MovementAnimation#0" />
+            <element signature="e#2858#2859#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/kylediaz/metalgearocelot/entity/PhysicalEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding>
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#1772#1773#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
+            <element signature="e#1844#1845#0" expanded="true" />
+            <element signature="e#2161#2162#0" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#3111#3112#0" expanded="true" />
+            <element signature="e#3153#3154#0" expanded="true" />
+            <element signature="e#3194#3195#0" expanded="true" />
+            <element signature="e#3236#3237#0" expanded="true" />
+            <element signature="method#isFinished#0;class#Event#0;class#PhysicalEntity#0" />
+            <element signature="e#3707#3708#0" expanded="true" />
+            <element signature="e#3736#3737#0" expanded="true" />
+            <element signature="e#3781#3782#0" expanded="true" />
+            <element signature="e#3813#3814#0" expanded="true" />
           </folding>
         </state>
       </provider>

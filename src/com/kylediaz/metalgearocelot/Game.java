@@ -25,11 +25,11 @@ public class Game extends JPanel {
     private Camera camera;
 
     private Map map;
-
     {
         try {
             map = new Map.Builder()
                     .background(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\maps\\arena\\background.png")))
+                    .backgroundColor(new Color(0, 0, 32))
                     .build();
         } catch (IOException e) {
             System.err.println(e);
@@ -51,10 +51,8 @@ public class Game extends JPanel {
         parent.addComponentListener(windowScaler);
     }
 
-    Snake snake;
-
     private void initEntities() {
-        snake = new Snake(0, 0) {
+        Snake snake = new Snake(16, 16) {
             @Override
             public void tick(double deltaTime) {
                 super.tick(deltaTime);

@@ -1,29 +1,31 @@
 package com.kylediaz.metalgearocelot.entity;
 
-import com.kylediaz.metalgearocelot.entity.animation.Animation;
-import com.kylediaz.metalgearocelot.entity.animation.AnimationCycle;
-
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Entity {
 
-    private Set<Animation> animations = new HashSet<>();
+    private Set<Effect> effects = new HashSet<>();
 
     /**
-     * @param g Graphics2D var of the game it is in
+     * @param g2d Graphics2D var of the game it is in
      */
     public void draw(Graphics2D g2d) {
 
     }
 
     public void tick(double deltaTime) {
-        animations.forEach(a -> a.cycle());
+        effects.forEach(e -> e.tick(deltaTime));
     }
 
-    protected void addAnimation(Animation animation) {
-        animations.add(animation);
+    public Set<Effect> effects() {
+        return effects;
     }
 
+    public abstract class Effect {
+
+        public abstract void tick(double deltaTime);
+
+    }
 }

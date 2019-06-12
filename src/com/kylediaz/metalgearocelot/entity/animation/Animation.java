@@ -8,6 +8,10 @@ public abstract class Animation {
 
     public abstract void cycle();
 
+    public abstract void reset();
+
+    public abstract boolean isFinished();
+
     @Override
     public String toString() {
         return currentFrame() != null ? String.format("%s on frame %s", super.toString(), currentFrame().toString())

@@ -1,5 +1,6 @@
 package com.kylediaz.metalgearocelot.entity.animation;
 
+import com.kylediaz.metalgearocelot.entity.animation.directional.DirectionalAnimation;
 import com.kylediaz.metalgearocelot.util.Direction;
 import com.kylediaz.metalgearocelot.util.Vector;
 
@@ -10,13 +11,16 @@ import java.util.TreeMap;
 
 public class MovementAnimation extends Animation {
 
+    /*
+    The map needs to be sorted for the getDirectionalAnimation method.
+     */
     private SortedMap<Double, DirectionalAnimation> animations;
 
     private double currentSpeed;
     private Direction currentDirection;
 
     // Prevents outside instantiation
-    private MovementAnimation(SortedMap<Double, DirectionalAnimation> animations) {
+    protected MovementAnimation(SortedMap<Double, DirectionalAnimation> animations) {
         this.animations = animations;
     }
 
@@ -36,9 +40,9 @@ public class MovementAnimation extends Animation {
 
     @Override
     public BufferedImage currentFrame() {
-        return currentAnimationCycle().currentFrame();
+        return currentAnimation().currentFrame();
     }
-    public AnimationCycle currentAnimationCycle() {
+    public Animation currentAnimation() {
         DirectionalAnimation animation = getDirectionalAnimation();
         animation.setCurrentDirection(currentDirection);
         return animation.getCurrentAnimation();
@@ -75,7 +79,17 @@ public class MovementAnimation extends Animation {
 
     @Override
     public void cycle() {
-        currentAnimationCycle().cycle();
+        getDirectionalAnimation().cycle();
+    }
+
+    @Override
+    public void reset() {
+        animations.values().forEach(DirectionalAnimation::reset);
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 
 }

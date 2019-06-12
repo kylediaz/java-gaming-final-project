@@ -13,12 +13,14 @@ public class Vector {
         this.yComponent = yComponent;
     }
     public static Vector polar(double magnitude, double degrees) {
-        if (magnitude == 0) return ZERO;
+        if (magnitude == 0)
+            return ZERO;
         degrees %= 360;
         return new Vector(magnitude * Math.cos(degrees), magnitude * Math.sin(degrees));
     }
     public static Vector rectangular(double xComponent, double yComponent) {
-        if (xComponent == 0 && yComponent == 0) return ZERO;
+        if (xComponent == 0 && yComponent == 0)
+            return ZERO;
         return new Vector(xComponent, yComponent);
     }
 
@@ -47,7 +49,8 @@ public class Vector {
     }
     public double angle() {
         double angle = Math.toDegrees(Math.atan2(yComponent, xComponent));
-        if (angle < 0) angle += 360;
+        if (angle < 0)
+            angle += 360;
         return angle;
     }
     public double magnitude() {

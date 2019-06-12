@@ -1,12 +1,16 @@
 package com.kylediaz.metalgearocelot.entity;
 
 import com.kylediaz.metalgearocelot.camera.Focusable;
+import com.kylediaz.metalgearocelot.entity.animation.Animation;
 import com.kylediaz.metalgearocelot.util.Vector;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * An entity that physically occupies space in the game
+ */
 public class PhysicalEntity extends Entity implements Focusable {
 
     private Rectangle.Double bounds;
@@ -29,6 +33,10 @@ public class PhysicalEntity extends Entity implements Focusable {
     @Override
     public void tick(double deltaTime) {
         super.tick(deltaTime);
+        if (currentEvent == null)
+            currentEvent = defaultEvent;
+        if (currentEvent != null)
+            currentEvent.tick(deltaTime);
         translate(velocity.getXComponent() * deltaTime, velocity.getYComponent() * deltaTime);
     }
 
@@ -51,20 +59,6 @@ public class PhysicalEntity extends Entity implements Focusable {
         translate(0, dy);
     }
 
-    public void setX(double x) {
-        bounds.x = x;
-    }
-    public void setY(double y) {
-        bounds.y = y;
-    }
-
-    public void setWidth(double width) {
-        bounds.width = width;
-    }
-    public void setHeight(double height) {
-        bounds.height = height;
-    }
-
     public Vector getVelocity() {
         return velocity;
     }
@@ -76,4 +70,55 @@ public class PhysicalEntity extends Entity implements Focusable {
     public Point2D.Double getFocusPoint() {
         return new Point2D.Double(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
     }
+
+    private Event currentEvent;
+    private Event defaultEvent;
+
+    /**
+     * Unlike <code>Effect</code>s, a <code>PhysicalEntity</code> can only have one active <code>Event</code> at a
+     * time because the active <code>Event</code> defines how the <code>Entity</code> is drawn.
+     * @param <A> the type of animation it uses
+     */
+    public abstract class Event<A extends Animation> extends Effect {
+        private boolean interrupted;
+
+        /*
+        override the periodic method if you want to modify its behavior
+         */
+        public final void tick(double deltaTime) {
+            if (getAnimation() != null) {
+                getAnimation().cycle();
+            }
+            if (isFinished()) {
+                end();
+                currentEvent = defaultEvent;
+            }
+            periodic();
+        }
+
+        public abstract void periodic();
+
+        public void interrupt() {
+            interrupted = true;
+        }
+        public boolean isInterrupted() {
+            return interrupted;
+        }
+
+        public boolean isFinished() {
+            return (getAnimation() != null && getAnimation().isFinished()) || isInterrupted();
+        }
+
+        public abstract void end();
+
+        public abstract A getAnimation();
+    }
+
+    public void setCurrentEvent(Event e) {
+        currentEvent = e;
+    }
+    public void setDefaultEvent(Event e) {
+        defaultEvent = e;
+    }
+
 }

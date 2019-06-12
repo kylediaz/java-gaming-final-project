@@ -7,7 +7,7 @@ public class ImageAnimation extends Animation {
     private int cyclesPerFrame;
 
     protected int currentFrame = 0;
-    protected BufferedImage[] frames;
+    protected final BufferedImage[] frames;
 
     /**
      * @param cyclesPerFrame the number of times <code>currentFrame</code> will give the same <code>Image</code> until it switches to the next <code>Image</code>
@@ -16,6 +16,10 @@ public class ImageAnimation extends Animation {
     public ImageAnimation(int cyclesPerFrame, BufferedImage... frames) {
         this.cyclesPerFrame = cyclesPerFrame;
         this.frames = frames;
+    }
+    public ImageAnimation(ImageAnimation imageAnimation) {
+        this.cyclesPerFrame = imageAnimation.cyclesPerFrame;
+        this.frames = imageAnimation.frames;
     }
 
     protected int cycles = 0;
@@ -31,6 +35,18 @@ public class ImageAnimation extends Animation {
             cycles = 0;
         }
     }
+
+    @Override
+    public void reset() {
+        currentFrame = 0;
+        cycles = 0;
+    }
+
+    @Override
+    public boolean isFinished() {
+        return currentFrame >= frames.length;
+    }
+
     public BufferedImage currentFrame() {
         if (currentFrame >= frames.length || currentFrame < 0)
             return null;

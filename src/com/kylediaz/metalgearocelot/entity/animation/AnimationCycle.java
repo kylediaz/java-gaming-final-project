@@ -1,6 +1,5 @@
 package com.kylediaz.metalgearocelot.entity.animation;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -28,6 +27,14 @@ public class AnimationCycle extends ImageAnimation {
             currentFrame = (currentFrame + 1) % frames.length;
             cycles = 0;
         }
+    }
+
+    /**
+     * @return always false; this animation should never end
+     */
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 
 }
