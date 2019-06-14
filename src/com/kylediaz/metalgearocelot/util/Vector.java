@@ -37,12 +37,16 @@ public class Vector {
     public Vector subtract(Vector vector) {
         return rectangular(this.xComponent - vector.xComponent, this.yComponent - vector.yComponent);
     }
-    public Direction getDirection() throws Exception {
+
+    /**
+     * @return <code>Direction</code> of velocity, null if it is not facing a defined direction
+     */
+    public Direction getDirection() {
         for (Direction d : Direction.values()) {
             if (Math.abs(angle() - d.getAngle()) < 1)
                 return d;
         }
-        throw new Exception("Not a direction");
+        return null;
     }
     public boolean isInDirection(Direction direction) {
         return Math.abs(angle() - direction.getAngle()) < 1;

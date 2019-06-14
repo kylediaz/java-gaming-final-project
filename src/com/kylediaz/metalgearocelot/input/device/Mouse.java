@@ -1,4 +1,4 @@
-package com.kylediaz.metalgearocelot.input;
+package com.kylediaz.metalgearocelot.input.device;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;

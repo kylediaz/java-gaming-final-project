@@ -1,7 +1,7 @@
 package com.kylediaz.metalgearocelot;
 
-import com.kylediaz.metalgearocelot.input.Keyboard;
-import com.kylediaz.metalgearocelot.input.Mouse;
+import com.kylediaz.metalgearocelot.input.device.Keyboard;
+import com.kylediaz.metalgearocelot.input.device.Mouse;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,12 @@
 package com.kylediaz.metalgearocelot.entity;
 
+import com.kylediaz.metalgearocelot.InputIDs;
 import com.kylediaz.metalgearocelot.entity.animation.*;
 import com.kylediaz.metalgearocelot.entity.animation.directional.DirectionalAnimation;
 import com.kylediaz.metalgearocelot.entity.animation.directional.QuickDirectionalAnimation;
+import com.kylediaz.metalgearocelot.input.Input;
 import com.kylediaz.metalgearocelot.util.Direction;
+import com.kylediaz.metalgearocelot.util.Vector;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,25 +14,40 @@ import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
 
-public class Snake extends Character {
+public class Snake extends Soldier {
+
+    protected final static DirectionalAnimation shootAnimation = createShootAnimations();
 
     public Snake(double x, double y) {
         super(new Rectangle2D.Double(x, y, 14, 18));
         move = new Move(createMovementAnimations());
-        createAttackAnimations();
         setDefaultEvent(move);
     }
 
     private Move move;
 
     @Override
-    public void draw(Graphics2D g2d) {
-        try {
-            move.getAnimation().setVelocity(getVelocity());
-        } catch (Exception e) {
-            System.err.println(e);
+    public void tick(double deltaTime) {
+        super.tick(deltaTime);
+        int speed = 25;
+        int x = 0, y = 0;
+        if (Input.getButton(InputIDs.UP))
+            y -= speed;
+        if (Input.getButton(InputIDs.DOWN))
+            y += speed;
+        if (Input.getButton(InputIDs.LEFT))
+            x -= speed;
+        if (Input.getButton(InputIDs.RIGHT))
+            x += speed;
+        setVelocity(Vector.rectangular(x, y));
+        if (Input.getButton(InputIDs.SHOOT) && getCurrentEvent() instanceof Shoot == false) {
+            setCurrentEvent(new Shoot(shootAnimation));
         }
-        Image image = move.getAnimation().currentFrame();
+    }
+
+    @Override
+    public void draw(Graphics2D g2d) {
+        Image image = getCurrentEvent().getAnimation().currentFrame();
         g2d.drawImage(image, (int) Math.round(getBounds().x), (int) Math.round(getBounds().y), null);
     }
 
@@ -114,7 +132,7 @@ public class Snake extends Character {
         }
         return null;
     }
-    private void createAttackAnimations() {
+    private static DirectionalAnimation createShootAnimations() {
         try {
             Animation shootUp, shootDown, shootLeft, shootRight, shootUpLeft, shootUpRight, shootDownLeft, shootDownRight;
             shootUp = new ImageAnimation(60, ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\shoot\\up.png")));
@@ -125,7 +143,7 @@ public class Snake extends Character {
             shootDownLeft = new ImageAnimation(60, ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\shoot\\down left.png")));
             shootUpRight = new ImageAnimation(60, ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\shoot\\up right.png")));
             shootDownRight = new ImageAnimation(60, ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\characters\\snake\\shoot\\down right.png")));
-            DirectionalAnimation shoot = new DirectionalAnimation.Builder()
+            return new DirectionalAnimation.Builder()
                     .add(Direction.UP, shootUp)
                     .add(Direction.DOWN, shootDown)
                     .add(Direction.LEFT, shootLeft)
@@ -139,6 +157,7 @@ public class Snake extends Character {
             System.err.println(e);
             System.exit(1);
         }
+        return null;
     }
 
 }

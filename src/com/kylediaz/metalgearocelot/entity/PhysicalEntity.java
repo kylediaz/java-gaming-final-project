@@ -35,8 +35,6 @@ public class PhysicalEntity extends Entity implements Focusable {
         super.tick(deltaTime);
         if (currentEvent == null)
             currentEvent = defaultEvent;
-        if (currentEvent != null)
-            currentEvent.tick(deltaTime);
         translate(velocity.getXComponent() * deltaTime, velocity.getYComponent() * deltaTime);
     }
 
@@ -80,36 +78,22 @@ public class PhysicalEntity extends Entity implements Focusable {
      * @param <A> the type of animation it uses
      */
     public abstract class Event<A extends Animation> extends Effect {
-        private boolean interrupted;
 
-        /*
-        override the periodic method if you want to modify its behavior
-         */
-        public final void tick(double deltaTime) {
+        protected void tick(double deltaTime) {
+            super.tick(deltaTime);
             if (getAnimation() != null) {
                 getAnimation().cycle();
             }
-            if (isFinished()) {
-                end();
-                currentEvent = defaultEvent;
-            }
-            periodic();
         }
 
-        public abstract void periodic();
-
-        public void interrupt() {
-            interrupted = true;
-        }
-        public boolean isInterrupted() {
-            return interrupted;
-        }
-
+        @Override
         public boolean isFinished() {
-            return (getAnimation() != null && getAnimation().isFinished()) || isInterrupted();
+            return (getAnimation() != null && getAnimation().isFinished()) || super.isFinished();
         }
-
-        public abstract void end();
+        @Override
+        protected void end() {
+            currentEvent = defaultEvent;
+        }
 
         public abstract A getAnimation();
     }
@@ -117,8 +101,14 @@ public class PhysicalEntity extends Entity implements Focusable {
     public void setCurrentEvent(Event e) {
         currentEvent = e;
     }
+    public Event getCurrentEvent() {
+        return currentEvent;
+    }
     public void setDefaultEvent(Event e) {
         defaultEvent = e;
+    }
+    public Event getDefaultEvent() {
+        return defaultEvent;
     }
 
 }

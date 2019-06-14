@@ -3,23 +3,18 @@ package com.kylediaz.metalgearocelot;
 import com.kylediaz.metalgearocelot.camera.Camera;
 import com.kylediaz.metalgearocelot.entity.EntityManager;
 import com.kylediaz.metalgearocelot.entity.Snake;
-import com.kylediaz.metalgearocelot.input.Keyboard;
 import com.kylediaz.metalgearocelot.map.Map;
-import com.kylediaz.metalgearocelot.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 
 public class Game extends JPanel {
-
-    private Keyboard keyboard;
 
     private EntityManager entityManager = new EntityManager();
     private Camera camera;
@@ -43,8 +38,6 @@ public class Game extends JPanel {
 
     public Game(JFrame parent) {
         this.parent = parent;
-        keyboard = new Keyboard(parent);
-
         initEntities();
 
         // listen for window resizing
@@ -52,23 +45,7 @@ public class Game extends JPanel {
     }
 
     private void initEntities() {
-        Snake snake = new Snake(16, 16) {
-            @Override
-            public void tick(double deltaTime) {
-                super.tick(deltaTime);
-                int speed = 25;
-                int x = 0, y = 0;
-                if (keyboard.isPressed(KeyEvent.VK_UP))
-                    y -= speed;
-                if (keyboard.isPressed(KeyEvent.VK_DOWN))
-                    y += speed;
-                if (keyboard.isPressed(KeyEvent.VK_LEFT))
-                    x -= speed;
-                if (keyboard.isPressed(KeyEvent.VK_RIGHT))
-                    x += speed;
-                setVelocity(Vector.rectangular(x, y));
-            }
-        };
+        Snake snake = new Snake(16, 16);
         entityManager.add(snake);
         camera = new Camera(snake, targetDimension);
     }

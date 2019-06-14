@@ -1,13 +1,20 @@
 package com.kylediaz.metalgearocelot;
 
+import com.kylediaz.metalgearocelot.input.Input;
+import com.kylediaz.metalgearocelot.input.device.Keyboard;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Main {
 
     private static JFrame window = new JFrame();
+    private static Keyboard keyboard = new Keyboard(window);
+
 
     public static void main(String[] args) {
+        initInput();
         window.setSize(new Dimension(500, 500));
         viewGame(); //viewMenu();
         window.setTitle("Metal Gear: Ocelot");
@@ -22,6 +29,14 @@ public class Main {
     public static void viewGame() {
         window.getContentPane().removeAll();
         window.getContentPane().add(new Game(window));
+    }
+
+    private static void initInput() {
+        Input.setButton(InputIDs.UP, keyboard.new Button(KeyEvent.VK_UP));
+        Input.setButton(InputIDs.DOWN, keyboard.new Button(KeyEvent.VK_DOWN));
+        Input.setButton(InputIDs.LEFT, keyboard.new Button(KeyEvent.VK_LEFT));
+        Input.setButton(InputIDs.RIGHT, keyboard.new Button(KeyEvent.VK_RIGHT));
+        Input.setButton(InputIDs.SHOOT, keyboard.new Button(KeyEvent.VK_SPACE));
     }
 
 }

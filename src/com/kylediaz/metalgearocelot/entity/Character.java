@@ -15,7 +15,7 @@ public class Character extends PhysicalEntity {
         super(bounds);
     }
 
-    protected class Move extends Event {
+    public class Move extends Event {
 
         private MovementAnimation animation;
 
@@ -24,13 +24,18 @@ public class Character extends PhysicalEntity {
         }
 
         @Override
-        public void periodic() {
+        public void tick(double deltaTime) {
+            super.tick(deltaTime);
             animation.setVelocity(getVelocity());
         }
 
         @Override
-        public void end() {
+        public void periodic(double deltaTime) {
+        }
 
+        @Override
+        public void end() {
+            super.end();
         }
 
         @Override
