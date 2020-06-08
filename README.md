@@ -1,3 +1,3 @@
 # gaming-final-project
 
-Final project for Java Gaming
+Far from incomplete project I made for the Java Gaming class I took in 2017

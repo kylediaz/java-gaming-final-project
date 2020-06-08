@@ -22,6 +22,14 @@ public abstract class Entity {
         copyOfEffects.forEach(e -> e.tick(deltaTime));
     }
 
+    /**
+     * Gives this entity access to the <code>EntityManager</code> so it can add/remove entities as needed
+     * @param entities the <code>EntityManager</code> this entity is stored in
+     */
+    public void updateEntities(EntityManager entities) {
+
+    }
+
     public Collection<Effect> effects() {
         return effects;
     }
@@ -57,7 +65,6 @@ public abstract class Entity {
         protected abstract void end();
 
     }
-
     /**
      * A type of <code>Effect</code> that only executes the code in the constructor, and then ends
      */

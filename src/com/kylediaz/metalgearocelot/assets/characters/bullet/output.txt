@@ -1,0 +1,15 @@
+g.setColor(new Color(24, 24, 56, 255));
+g.fillRect(x + 1 * width / 3, y\ + 0 * height / 3, width / 3, height / 3);
+g.fillRect(x + 0 * width / 3, y\ + 1 * height / 3, width / 3, height / 3);
+g.fillRect(x + 2 * width / 3, y\ + 1 * height / 3, width / 3, height / 3);
+g.fillRect(x + 1 * width / 3, y\ + 2 * height / 3, width / 3, height / 3);
+g.setColor(new Color(200, 200, 248, 255));
+g.fillRect(x + 1 * width / 3, y\ + 1 * height / 3, width / 3, height / 3);
+g.setColor(new Color(248, 0, 0, 73));
+g.fillRect(x + 0 * width / 3, y\ + 0 * height / 3, width / 3, height / 3);
+g.setColor(new Color(248, 0, 0, 77));
+g.fillRect(x + 0 * width / 3, y\ + 2 * height / 3, width / 3, height / 3);
+g.setColor(new Color(248, 0, 0, 50));
+g.fillRect(x + 2 * width / 3, y\ + 0 * height / 3, width / 3, height / 3);
+g.setColor(new Color(248, 0, 0, 58));
+g.fillRect(x + 2 * width / 3, y\ + 2 * height / 3, width / 3, height / 3);

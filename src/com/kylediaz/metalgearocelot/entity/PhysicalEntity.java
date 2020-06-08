@@ -1,5 +1,6 @@
 package com.kylediaz.metalgearocelot.entity;
 
+import com.kylediaz.metalgearocelot.util.geom.Rectangle;
 import com.kylediaz.metalgearocelot.camera.Focusable;
 import com.kylediaz.metalgearocelot.entity.animation.Animation;
 import com.kylediaz.metalgearocelot.util.Vector;
@@ -7,13 +8,14 @@ import com.kylediaz.metalgearocelot.util.Vector;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.util.Collection;
 
 /**
  * An entity that physically occupies space in the game
  */
 public class PhysicalEntity extends Entity implements Focusable {
 
-    private Rectangle.Double bounds;
+    private Rectangle bounds;
     private Vector velocity = Vector.ZERO;
 
     /**
@@ -24,9 +26,9 @@ public class PhysicalEntity extends Entity implements Focusable {
      * @param height the height going down from the <code>Point</code>
      */
     public PhysicalEntity(double x, double y, double width, double height) {
-        this(new Rectangle2D.Double(x, y, width, height));
+        this(new Rectangle(x, y, width, height));
     }
-    public PhysicalEntity(Rectangle.Double bounds) {
+    public PhysicalEntity(Rectangle bounds) {
         this.bounds = bounds;
     }
 
@@ -41,9 +43,12 @@ public class PhysicalEntity extends Entity implements Focusable {
     public Rectangle.Double getBounds() {
         return bounds;
     }
-    public boolean collidesWith(PhysicalEntity other) {
+    public boolean collidesWith(Rectangle rect) {
         return new Rectangle2D.Double(bounds.x + velocity.getXComponent(), bounds.y + velocity.getYComponent(), bounds.width, bounds.height)
-                .intersects(other.bounds);
+                .intersects(rect);
+    }
+    public boolean collidesWith(PhysicalEntity other) {
+        return collidesWith(other.bounds);
     }
 
     public void translate(double dx, double dy) {
@@ -106,6 +111,8 @@ public class PhysicalEntity extends Entity implements Focusable {
     }
     public void setDefaultEvent(Event e) {
         defaultEvent = e;
+        if (currentEvent == null)
+            currentEvent = defaultEvent;
     }
     public Event getDefaultEvent() {
         return defaultEvent;

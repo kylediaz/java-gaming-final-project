@@ -1,8 +1,7 @@
 package com.kylediaz.metalgearocelot.entity;
 
 import com.kylediaz.metalgearocelot.entity.animation.MovementAnimation;
-
-import java.awt.*;
+import com.kylediaz.metalgearocelot.util.geom.Rectangle;
 
 public class Character extends PhysicalEntity {
 
@@ -11,7 +10,7 @@ public class Character extends PhysicalEntity {
         super(x, y, width, height);
     }
 
-    public Character(Rectangle.Double bounds) {
+    public Character(Rectangle bounds) {
         super(bounds);
     }
 

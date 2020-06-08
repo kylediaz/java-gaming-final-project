@@ -1,9 +1,6 @@
 package com.kylediaz.metalgearocelot.entity;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  *
@@ -12,7 +9,7 @@ public class EntityManager extends Thread implements Iterable<Entity> {
 
     private Collection<Entity> entities = new HashSet<>();
 
-    private final int TICKRATE = 60;
+    private final int TICKRATE = 16;
     private final int DELAY = 1000 / TICKRATE;
 
     private long startTime = System.currentTimeMillis(), deltaTime = 0, beforeTime, sleep;

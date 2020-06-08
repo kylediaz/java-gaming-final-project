@@ -24,11 +24,33 @@ public class Vector {
         return new Vector(xComponent, yComponent);
     }
 
+    /**
+     * @return x component of the vector in the cartesian coordinate plane
+     */
     public double getXComponent() {
         return xComponent;
     }
+    /**
+     * @return y component of the vector in the cartesian coordinate plane
+     */
     public double getYComponent() {
         return yComponent;
+    }
+    /**
+     * @return the angle of the vector in polar form
+     */
+    public double angle() {
+        double angle = Math.toDegrees(Math.atan2(yComponent, xComponent));
+        if (angle < 0)
+            angle += 360;
+        return angle;
+    }
+    /**
+     * @return the magnitude of the vector
+     */
+    public double magnitude() {
+        // distance formula/c is the magnitude of the vector
+        return Math.sqrt(xComponent * xComponent + yComponent * yComponent);
     }
 
     public Vector add(Vector vector) {
@@ -51,17 +73,10 @@ public class Vector {
     public boolean isInDirection(Direction direction) {
         return Math.abs(angle() - direction.getAngle()) < 1;
     }
-    public double angle() {
-        double angle = Math.toDegrees(Math.atan2(yComponent, xComponent));
-        if (angle < 0)
-            angle += 360;
-        return angle;
-    }
-    public double magnitude() {
-        // distance formula/c is the magnitude of the vector
-        return Math.sqrt(xComponent * xComponent + yComponent * yComponent);
-    }
 
+    /**
+     * @return the vector in the form of a point
+     */
     @Override
     public String toString() {
         return String.format("(%f, %f)", xComponent, yComponent);

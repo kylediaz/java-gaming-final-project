@@ -8,23 +8,22 @@ import com.kylediaz.metalgearocelot.map.Map;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 
 public class Game extends JPanel {
 
-    private EntityManager entityManager = new EntityManager();
+    private final EntityManager entityManager = new EntityManager();
+
     private Camera camera;
 
-    private Map map;
-    {
+    public static Map map;
+    static {
         try {
             map = new Map.Builder()
                     .background(ImageIO.read(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\maps\\arena\\background.png")))
                     .backgroundColor(new Color(0, 0, 32))
+                    .occupiedArea(new File("src\\com\\kylediaz\\metalgearocelot\\assets\\maps\\arena\\occupied areas.txt"))
                     .build();
         } catch (IOException e) {
             System.err.println(e);
@@ -32,16 +31,15 @@ public class Game extends JPanel {
         }
     }
 
-    private WindowScaler windowScaler = new WindowScaler();
+    private Dimension targetDimension = new Dimension(64, 64);
+    private WindowScaler windowScaler;
 
     private JFrame parent;
 
     public Game(JFrame parent) {
         this.parent = parent;
         initEntities();
-
-        // listen for window resizing
-        parent.addComponentListener(windowScaler);
+        windowScaler = new WindowScaler(parent, targetDimension);
     }
 
     private void initEntities() {
@@ -50,11 +48,9 @@ public class Game extends JPanel {
         camera = new Camera(snake, targetDimension);
     }
 
-    private Dimension targetDimension = new Dimension(64, 64);
-
     @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    public void paint(Graphics g) {
+        super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.transform(windowScaler.getTransformation());
 
@@ -65,25 +61,6 @@ public class Game extends JPanel {
         map.drawForeground(g2d);
 
         repaint();
-    }
-
-    private class WindowScaler extends ComponentAdapter {
-
-        private double scale = 1.0;
-        private double paddingLeft, paddingTop;
-
-        public void componentResized(ComponentEvent componentEvent) {
-            scale = Math.min((float) parent.getWidth() / camera.getDimension().width, (float) parent.getHeight() / camera.getDimension().height);
-            paddingLeft = (parent.getWidth() - camera.getDimension().width * scale) / 2 / scale;
-            paddingTop = (parent.getHeight() - camera.getDimension().height * scale) / 2 / scale;
-        }
-
-        private AffineTransform getTransformation() {
-            AffineTransform output = new AffineTransform();
-            output.scale(scale, scale);
-            output.translate(paddingLeft, paddingTop);
-            return output;
-        }
     }
 
 }
